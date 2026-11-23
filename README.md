@@ -85,7 +85,7 @@ adfs-cert-sync \
 
 ```bash
 adfs-cert-sync \
-  --metadata-url "[https://fs.beispiel.de/FederationMetadata/2007-06/FederationMetadata.xml](https://fs.beispiel.de/FederationMetadata/2007-06/FederationMetadata.xml)" \
+  --metadata-url "https://fs.beispiel.de/FederationMetadata/2007-06/FederationMetadata.xml" \
   --output "/opt/app/certs/adfs-signing.pem" \
   --pre-hook "/opt/hooks/check_network.sh" \
   --post-hook "/opt/hooks/on_cert_change.sh"
@@ -188,7 +188,7 @@ from pathlib import Path
 from adfs_cert_sync import AppConfig, HookConfig, SyncStatus, sync_adfs_certificate
 
 config = AppConfig(
-    metadata_url="[https://fs.beispiel.de/FederationMetadata/2007-06/FederationMetadata.xml](https://fs.beispiel.de/FederationMetadata/2007-06/FederationMetadata.xml)",
+    metadata_url="https://fs.beispiel.de/FederationMetadata/2007-06/FederationMetadata.xml",
     cert_output_path=Path("/tmp/adfs_signing_cert.pem"),
     env_file=None,
     hooks=HookConfig(post_hook="/opt/hooks/notify_app.sh", post_hook_only_on_change=True),
