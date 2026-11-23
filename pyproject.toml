@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "adfs-cert-sync"
+version = "0.1.0"
+description = "CLI und Library zum Abrufen und Synchronisieren des aktuell gültigen AD-FS Signing-Zertifikats."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "cryptography>=41.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+]
+
+[project.scripts]
+adfs-cert-sync = "adfs_cert_sync.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

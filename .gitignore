@@ -1,0 +1,20 @@
+# Byte-compiled / Cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtuelle Umgebungen & Build-Artefakte
+.venv/
+venv/
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+
+# Lokale Konfiguration & erzeugte Zertifikatsdateien
+.env
+*.pem
+*.crt
+*.cer
+*.der
+var/

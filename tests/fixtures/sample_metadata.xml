@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata"
+                  entityID="http://fs.beispiel.de/adfs/services/trust">
+  <RoleDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:type="fed:SecurityTokenServiceType"
+                  xmlns:fed="http://docs.oasis-open.org/wsfed/federation/200706"
+                  protocolSupportEnumeration="http://docs.oasis-open.org/wsfed/federation/200706 urn:oasis:names:tc:SAML:2.0:protocol">
+    <KeyDescriptor use="signing">
+      <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+        <X509Data>
+          <X509Certificate>PLACEHOLDER_BASE64_CERT</X509Certificate>
+        </X509Data>
+      </KeyInfo>
+    </KeyDescriptor>
+    <KeyDescriptor use="encryption">
+      <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+        <X509Data>
+          <X509Certificate>PLACEHOLDER_ENCRYPTION_CERT</X509Certificate>
+        </X509Data>
+      </KeyInfo>
+    </KeyDescriptor>
+  </RoleDescriptor>
+</EntityDescriptor>
