@@ -7,7 +7,7 @@ import pytest
 
 from cryptography.hazmat.primitives.asymmetric import rsa
 
-from adfs_cert_sync import metadata as metadata_module
+from adfs_cert_sync import metadata as metadata_module, service as service_module
 from adfs_cert_sync.models import AppConfig, HookConfig, SyncStatus
 from adfs_cert_sync.service import sync_adfs_certificate
 from .test_validator import _make_self_signed_der
@@ -79,7 +79,7 @@ def test_sync_updates_then_unchanged_and_runs_post_hook_on_change(
 
     # Lauf 1: Erstes Zertifikat -> UPDATED, Post-Hook läuft
     monkeypatch.setattr(
-        metadata_module,
+        service_module,
         "fetch_metadata_xml",
         lambda url, timeout_seconds=15: _xml_with_certs([cert1_der]),
     )
@@ -96,7 +96,7 @@ def test_sync_updates_then_unchanged_and_runs_post_hook_on_change(
 
     # Lauf 3: Neueres gültiges Zertifikat taucht auf -> UPDATED, Post-Hook läuft erneut
     monkeypatch.setattr(
-        metadata_module,
+        service_module,
         "fetch_metadata_xml",
         lambda url, timeout_seconds=15: _xml_with_certs([cert1_der, cert2_der]),
     )
